@@ -2152,7 +2152,8 @@ declare namespace _ {
         /**
          * @see _.head
          */
-        head<T>(): T;
+        head<T extends {}>(): LoDashExplicitObjectWrapper<T>;
+        head<T>(): LoDashExplicitWrapper<T>;
     }
 
     interface LoDashExplicitObjectWrapper<T> {

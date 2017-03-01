@@ -1047,8 +1047,8 @@ namespace TestHead {
     {
         let result: _.LoDashExplicitObjectWrapper<TResult>;
 
-        result = _(array).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
-        result = _(list).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
+        result = _(array).chain().head();
+        result = _(list).chain().head();
     }
 }
 
