@@ -1081,6 +1081,20 @@ namespace TestHead {
         result = _(array).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
         result = _(list).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
     }
+    {
+        let result: string;
+
+        result = _(['a','b','c']).chain().head().value();
+        result = _.chain(['a','b','c']).head().value();
+    }
+    {
+        let result: TResult;
+
+        result = _(array).chain().head().value();
+        result = _(list).chain().head().value();
+        result = _.chain(array).head().value();
+        result = _.chain(list).head().value();
+    }
 }
 
 // _.indexOf
