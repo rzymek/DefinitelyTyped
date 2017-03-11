@@ -159,11 +159,11 @@ namespace TestChunk {
     {
         let result: TResult[][];
 
-        result = _.chunk<TResult>(array);
-        result = _.chunk<TResult>(array, 42);
+        result = _.chunk(array);
+        result = _.chunk(array, 42);
 
-        result = _.chunk<TResult>(list);
-        result = _.chunk<TResult>(list, 42);
+        result = _.chunk(list);
+        result = _.chunk(list, 42);
     }
 
     {
@@ -172,8 +172,8 @@ namespace TestChunk {
         result = _(array).chunk();
         result = _(array).chunk(42);
 
-        result = _(list).chunk<TResult>();
-        result = _(list).chunk<TResult>(42);
+        result = _(list).chunk();
+        result = _(list).chunk(42);
     }
 
     {
@@ -182,8 +182,8 @@ namespace TestChunk {
         result = _(array).chain().chunk();
         result = _(array).chain().chunk(42);
 
-        result = _(list).chain().chunk<TResult>();
-        result = _(list).chain().chunk<TResult>(42);
+        result = _(list).chain().chunk();
+        result = _(list).chain().chunk(42);
     }
 }
 
@@ -196,22 +196,22 @@ namespace TestCompact {
         let result: TResult[];
 
         result = _.compact<TResult>();
-        result = _.compact<TResult>(array);
-        result = _.compact<TResult>(list);
+        result = _.compact(array);
+        result = _.compact(list);
     }
 
     {
         let result: _.LoDashImplicitArrayWrapper<TResult>;
 
-        result = _<TResult>(array).compact();
-        result = _(list).compact<TResult>();
+        result = _(array).compact();
+        result = _(list).compact();
     }
 
     {
         let result: _.LoDashExplicitArrayWrapper<TResult>;
 
-        result = _<TResult>(array).chain().compact();
-        result = _(list).chain().compact<TResult>();
+        result = _(array).chain().compact();
+        result = _(list).chain().compact();
     }
 }
 
@@ -242,10 +242,10 @@ namespace TestDifference {
         result = _(array).difference(list, array);
         result = _(array).difference(array, list, array);
 
-        result = _(list).difference<TResult>();
-        result = _(list).difference<TResult>(list);
-        result = _(list).difference<TResult>(array, list);
-        result = _(list).difference<TResult>(list, array, list);
+        result = _(list).difference();
+        result = _(list).difference(list);
+        result = _(list).difference(array, list);
+        result = _(list).difference(list, array, list);
     }
 
     {
@@ -256,10 +256,10 @@ namespace TestDifference {
         result = _(array).chain().difference(list, array);
         result = _(array).chain().difference(array, list, array);
 
-        result = _(list).chain().difference<TResult>();
-        result = _(list).chain().difference<TResult>(list);
-        result = _(list).chain().difference<TResult>(array, list);
-        result = _(list).chain().difference<TResult>(list, array, list);
+        result = _(list).chain().difference();
+        result = _(list).chain().difference(list);
+        result = _(list).chain().difference(array, list);
+        result = _(list).chain().difference(list, array, list);
     }
 }
 
@@ -272,180 +272,180 @@ namespace TestDifferenceBy {
     {
         let result: TResult[];
 
-        result = _.differenceBy<TResult>(array, array);
-        result = _.differenceBy<TResult>(array, list, array);
-        result = _.differenceBy<TResult>(array, array, list, array);
-        result = _.differenceBy<TResult>(array, list, array, list, array);
-        result = _.differenceBy<TResult>(array, array, list, array, list, array);
-        result = _.differenceBy<TResult>(array, list, array, list, array, list, array);
+        result = _.differenceBy(array, array);
+        result = _.differenceBy(array, list, array);
+        result = _.differenceBy(array, array, list, array);
+        result = _.differenceBy(array, list, array, list, array);
+        result = _.differenceBy(array, array, list, array, list, array);
+        result = _.differenceBy(array, list, array, list, array, list, array);
 
-        result = _.differenceBy<TResult>(array, array, iteratee);
-        result = _.differenceBy<TResult>(array, list, array, iteratee);
-        result = _.differenceBy<TResult>(array, array, list, array, iteratee);
-        result = _.differenceBy<TResult>(array, list, array, list, array, iteratee);
-        result = _.differenceBy<TResult>(array, array, list, array, list, array, iteratee);
-        result = _.differenceBy<TResult>(array, list, array, list, array, list, array, iteratee);
+        result = _.differenceBy(array, array, iteratee);
+        result = _.differenceBy(array, list, array, iteratee);
+        result = _.differenceBy(array, array, list, array, iteratee);
+        result = _.differenceBy(array, list, array, list, array, iteratee);
+        result = _.differenceBy(array, array, list, array, list, array, iteratee);
+        result = _.differenceBy(array, list, array, list, array, list, array, iteratee);
 
-        result = _.differenceBy<TResult>(array, array, 'a');
-        result = _.differenceBy<TResult>(array, list, array, 'a');
-        result = _.differenceBy<TResult>(array, array, list, array, 'a');
-        result = _.differenceBy<TResult>(array, list, array, list, array, 'a');
-        result = _.differenceBy<TResult>(array, array, list, array, list, array, 'a');
-        result = _.differenceBy<TResult>(array, list, array, list, array, list, array, 'a');
+        result = _.differenceBy(array, array, 'a');
+        result = _.differenceBy(array, list, array, 'a');
+        result = _.differenceBy(array, array, list, array, 'a');
+        result = _.differenceBy(array, list, array, list, array, 'a');
+        result = _.differenceBy(array, array, list, array, list, array, 'a');
+        result = _.differenceBy(array, list, array, list, array, list, array, 'a');
 
-        result = _.differenceBy<TResult, {a: number}>(array, array, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(array, list, array, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(array, array, list, array, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(array, list, array, list, array, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(array, array, list, array, list, array, {a: 1});
-        result = _.differenceBy<TResult>(array, list, array, list, array, list, array, {a: 1});
+        result = _.differenceBy(array, array, {a: 1});
+        result = _.differenceBy(array, list, array, {a: 1});
+        result = _.differenceBy(array, array, list, array, {a: 1});
+        result = _.differenceBy(array, list, array, list, array, {a: 1});
+        result = _.differenceBy(array, array, list, array, list, array, {a: 1});
+        result = _.differenceBy(array, list, array, list, array, list, array, {a: 1});
 
-        result = _.differenceBy<TResult>(list, list);
-        result = _.differenceBy<TResult>(list, array, list);
-        result = _.differenceBy<TResult>(list, list, array, list);
-        result = _.differenceBy<TResult>(list, array, list, array, list);
-        result = _.differenceBy<TResult>(list, list, array, list, array, list);
-        result = _.differenceBy<TResult>(list, array, list, array, list, array, list);
+        result = _.differenceBy(list, list);
+        result = _.differenceBy(list, array, list);
+        result = _.differenceBy(list, list, array, list);
+        result = _.differenceBy(list, array, list, array, list);
+        result = _.differenceBy(list, list, array, list, array, list);
+        result = _.differenceBy(list, array, list, array, list, array, list);
 
-        result = _.differenceBy<TResult>(list, list, iteratee);
-        result = _.differenceBy<TResult>(list, array, list, iteratee);
-        result = _.differenceBy<TResult>(list, list, array, list, iteratee);
-        result = _.differenceBy<TResult>(list, array, list, array, list, iteratee);
-        result = _.differenceBy<TResult>(list, list, array, list, array, list, iteratee);
-        result = _.differenceBy<TResult>(list, array, list, array, list, array, list, iteratee);
+        result = _.differenceBy(list, list, iteratee);
+        result = _.differenceBy(list, array, list, iteratee);
+        result = _.differenceBy(list, list, array, list, iteratee);
+        result = _.differenceBy(list, array, list, array, list, iteratee);
+        result = _.differenceBy(list, list, array, list, array, list, iteratee);
+        result = _.differenceBy(list, array, list, array, list, array, list, iteratee);
 
-        result = _.differenceBy<TResult>(list, list, 'a');
-        result = _.differenceBy<TResult>(list, array, list, 'a');
-        result = _.differenceBy<TResult>(list, list, array, list, 'a');
-        result = _.differenceBy<TResult>(list, array, list, array, list, 'a');
-        result = _.differenceBy<TResult>(list, list, array, list, array, list, 'a');
-        result = _.differenceBy<TResult>(list, array, list, array, list, array, list, 'a');
+        result = _.differenceBy(list, list, 'a');
+        result = _.differenceBy(list, array, list, 'a');
+        result = _.differenceBy(list, list, array, list, 'a');
+        result = _.differenceBy(list, array, list, array, list, 'a');
+        result = _.differenceBy(list, list, array, list, array, list, 'a');
+        result = _.differenceBy(list, array, list, array, list, array, list, 'a');
 
-        result = _.differenceBy<TResult, {a: number}>(list, list, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(list, array, list, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(list, list, array, list, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(list, array, list, array, list, {a: 1});
-        result = _.differenceBy<TResult, {a: number}>(list, list, array, list, array, list, {a: 1});
-        result = _.differenceBy<TResult>(list, array, list, array, list, array, list, {a: 1});
+        result = _.differenceBy(list, list, {a: 1});
+        result = _.differenceBy(list, array, list, {a: 1});
+        result = _.differenceBy(list, list, array, list, {a: 1});
+        result = _.differenceBy(list, array, list, array, list, {a: 1});
+        result = _.differenceBy(list, list, array, list, array, list, {a: 1});
+        result = _.differenceBy(list, array, list, array, list, array, list, {a: 1});
     }
 
     {
         let result: _.LoDashImplicitArrayWrapper<TResult>;
 
-        result = _(array).differenceBy<TResult>(array);
-        result = _(array).differenceBy<TResult>(list, array);
-        result = _(array).differenceBy<TResult>(array, list, array);
-        result = _(array).differenceBy<TResult>(list, array, list, array);
-        result = _(array).differenceBy<TResult>(array, list, array, list, array);
-        result = _(array).differenceBy<TResult>(list, array, list, array, list, array);
+        result = _(array).differenceBy(array);
+        result = _(array).differenceBy(list, array);
+        result = _(array).differenceBy(array, list, array);
+        result = _(array).differenceBy(list, array, list, array);
+        result = _(array).differenceBy(array, list, array, list, array);
+        result = _(array).differenceBy(list, array, list, array, list, array);
 
-        result = _(array).differenceBy<TResult>(array, iteratee);
-        result = _(array).differenceBy<TResult>(list, array, iteratee);
-        result = _(array).differenceBy<TResult>(array, list, array, iteratee);
-        result = _(array).differenceBy<TResult>(list, array, list, array, iteratee);
-        result = _(array).differenceBy<TResult>(array, list, array, list, array, iteratee);
+        result = _(array).differenceBy(array, iteratee);
+        result = _(array).differenceBy(list, array, iteratee);
+        result = _(array).differenceBy(array, list, array, iteratee);
+        result = _(array).differenceBy(list, array, list, array, iteratee);
+        result = _(array).differenceBy(array, list, array, list, array, iteratee);
         result = _(array).differenceBy<TResult>(list, array, list, array, list, array, iteratee);
 
-        result = _(array).differenceBy<TResult>(array, 'a');
-        result = _(array).differenceBy<TResult>(list, array, 'a');
-        result = _(array).differenceBy<TResult>(array, list, array, 'a');
-        result = _(array).differenceBy<TResult>(list, array, list, array, 'a');
-        result = _(array).differenceBy<TResult>(array, list, array, list, array, 'a');
+        result = _(array).differenceBy(array, 'a');
+        result = _(array).differenceBy(list, array, 'a');
+        result = _(array).differenceBy(array, list, array, 'a');
+        result = _(array).differenceBy(list, array, list, array, 'a');
+        result = _(array).differenceBy(array, list, array, list, array, 'a');
         result = _(array).differenceBy<TResult>(list, array, list, array, list, array, 'a');
 
-        result = _(array).differenceBy<TResult, {a: number}>(array, {a: 1});
-        result = _(array).differenceBy<TResult, {a: number}>(list, array, {a: 1});
-        result = _(array).differenceBy<TResult, {a: number}>(array, list, array, {a: 1});
-        result = _(array).differenceBy<TResult, {a: number}>(list, array, list, array, {a: 1});
-        result = _(array).differenceBy<TResult, {a: number}>(array, list, array, list, array, {a: 1});
+        result = _(array).differenceBy(array, {a: 1});
+        result = _(array).differenceBy(list, array, {a: 1});
+        result = _(array).differenceBy(array, list, array, {a: 1});
+        result = _(array).differenceBy(list, array, list, array, {a: 1});
+        result = _(array).differenceBy(array, list, array, list, array, {a: 1});
         result = _(array).differenceBy<TResult>(list, array, list, array, list, array, {a: 1});
 
-        result = _(list).differenceBy<TResult>(list);
-        result = _(list).differenceBy<TResult>(array, list);
-        result = _(list).differenceBy<TResult>(list, array, list);
-        result = _(list).differenceBy<TResult>(array, list, array, list);
-        result = _(list).differenceBy<TResult>(list, array, list, array, list);
-        result = _(list).differenceBy<TResult>(array, list, array, list, array, list);
+        result = _(list).differenceBy(list);
+        result = _(list).differenceBy(array, list);
+        result = _(list).differenceBy(list, array, list);
+        result = _(list).differenceBy(array, list, array, list);
+        result = _(list).differenceBy(list, array, list, array, list);
+        result = _(list).differenceBy(array, list, array, list, array, list);
 
-        result = _(list).differenceBy<TResult>(list, iteratee);
-        result = _(list).differenceBy<TResult>(array, list, iteratee);
-        result = _(list).differenceBy<TResult>(list, array, list, iteratee);
-        result = _(list).differenceBy<TResult>(array, list, array, list, iteratee);
-        result = _(list).differenceBy<TResult>(list, array, list, array, list, iteratee);
+        result = _(list).differenceBy(list, iteratee);
+        result = _(list).differenceBy(array, list, iteratee);
+        result = _(list).differenceBy(list, array, list, iteratee);
+        result = _(list).differenceBy(array, list, array, list, iteratee);
+        result = _(list).differenceBy(list, array, list, array, list, iteratee);
         result = _(list).differenceBy<TResult>(array, list, array, list, array, list, iteratee);
 
-        result = _(list).differenceBy<TResult>(list, 'a');
-        result = _(list).differenceBy<TResult>(array, list, 'a');
-        result = _(list).differenceBy<TResult>(list, array, list, 'a');
-        result = _(list).differenceBy<TResult>(array, list, array, list, 'a');
-        result = _(list).differenceBy<TResult>(list, array, list, array, list, 'a');
+        result = _(list).differenceBy(list, 'a');
+        result = _(list).differenceBy(array, list, 'a');
+        result = _(list).differenceBy(list, array, list, 'a');
+        result = _(list).differenceBy(array, list, array, list, 'a');
+        result = _(list).differenceBy(list, array, list, array, list, 'a');
         result = _(list).differenceBy<TResult>(array, list, array, list, array, list, 'a');
 
-        result = _(list).differenceBy<TResult, {a: number}>(list, {a: 1});
-        result = _(list).differenceBy<TResult, {a: number}>(array, list, {a: 1});
-        result = _(list).differenceBy<TResult, {a: number}>(list, array, list, {a: 1});
-        result = _(list).differenceBy<TResult, {a: number}>(array, list, array, list, {a: 1});
-        result = _(list).differenceBy<TResult, {a: number}>(list, array, list, array, list, {a: 1});
+        result = _(list).differenceBy(list, {a: 1});
+        result = _(list).differenceBy(array, list, {a: 1});
+        result = _(list).differenceBy(list, array, list, {a: 1});
+        result = _(list).differenceBy(array, list, array, list, {a: 1});
+        result = _(list).differenceBy(list, array, list, array, list, {a: 1});
         result = _(list).differenceBy<TResult>(array, list, array, list, array, list, {a: 1});
     }
 
     {
         let result: _.LoDashExplicitArrayWrapper<TResult>;
 
-        result = _(array).chain().differenceBy<TResult>(array);
-        result = _(array).chain().differenceBy<TResult>(list, array);
-        result = _(array).chain().differenceBy<TResult>(array, list, array);
-        result = _(array).chain().differenceBy<TResult>(list, array, list, array);
-        result = _(array).chain().differenceBy<TResult>(array, list, array, list, array);
-        result = _(array).chain().differenceBy<TResult>(list, array, list, array, list, array);
+        result = _(array).chain().differenceBy(array);
+        result = _(array).chain().differenceBy(list, array);
+        result = _(array).chain().differenceBy(array, list, array);
+        result = _(array).chain().differenceBy(list, array, list, array);
+        result = _(array).chain().differenceBy(array, list, array, list, array);
+        result = _(array).chain().differenceBy(list, array, list, array, list, array);
 
-        result = _(array).chain().differenceBy<TResult>(array, iteratee);
-        result = _(array).chain().differenceBy<TResult>(list, array, iteratee);
-        result = _(array).chain().differenceBy<TResult>(array, list, array, iteratee);
-        result = _(array).chain().differenceBy<TResult>(list, array, list, array, iteratee);
-        result = _(array).chain().differenceBy<TResult>(array, list, array, list, array, iteratee);
+        result = _(array).chain().differenceBy(array, iteratee);
+        result = _(array).chain().differenceBy(list, array, iteratee);
+        result = _(array).chain().differenceBy(array, list, array, iteratee);
+        result = _(array).chain().differenceBy(list, array, list, array, iteratee);
+        result = _(array).chain().differenceBy(array, list, array, list, array, iteratee);
         result = _(array).chain().differenceBy<TResult>(list, array, list, array, list, array, iteratee);
 
-        result = _(array).chain().differenceBy<TResult>(array, 'a');
-        result = _(array).chain().differenceBy<TResult>(list, array, 'a');
-        result = _(array).chain().differenceBy<TResult>(array, list, array, 'a');
-        result = _(array).chain().differenceBy<TResult>(list, array, list, array, 'a');
-        result = _(array).chain().differenceBy<TResult>(array, list, array, list, array, 'a');
+        result = _(array).chain().differenceBy(array, 'a');
+        result = _(array).chain().differenceBy(list, array, 'a');
+        result = _(array).chain().differenceBy(array, list, array, 'a');
+        result = _(array).chain().differenceBy(list, array, list, array, 'a');
+        result = _(array).chain().differenceBy(array, list, array, list, array, 'a');
         result = _(array).chain().differenceBy<TResult>(list, array, list, array, list, array, 'a');
 
-        result = _(array).chain().differenceBy<TResult, {a: number}>(array, {a: 1});
-        result = _(array).chain().differenceBy<TResult, {a: number}>(list, array, {a: 1});
-        result = _(array).chain().differenceBy<TResult, {a: number}>(array, list, array, {a: 1});
-        result = _(array).chain().differenceBy<TResult, {a: number}>(list, array, list, array, {a: 1});
-        result = _(array).chain().differenceBy<TResult, {a: number}>(array, list, array, list, array, {a: 1});
+        result = _(array).chain().differenceBy(array, {a: 1});
+        result = _(array).chain().differenceBy(list, array, {a: 1});
+        result = _(array).chain().differenceBy(array, list, array, {a: 1});
+        result = _(array).chain().differenceBy(list, array, list, array, {a: 1});
+        result = _(array).chain().differenceBy(array, list, array, list, array, {a: 1});
         result = _(array).chain().differenceBy<TResult>(list, array, list, array, list, array, {a: 1});
 
-        result = _(list).chain().differenceBy<TResult>(list);
-        result = _(list).chain().differenceBy<TResult>(array, list);
-        result = _(list).chain().differenceBy<TResult>(list, array, list);
-        result = _(list).chain().differenceBy<TResult>(array, list, array, list);
-        result = _(list).chain().differenceBy<TResult>(list, array, list, array, list);
+        result = _(list).chain().differenceBy(list);
+        result = _(list).chain().differenceBy(array, list);
+        result = _(list).chain().differenceBy(list, array, list);
+        result = _(list).chain().differenceBy(array, list, array, list);
+        result = _(list).chain().differenceBy(list, array, list, array, list);
         result = _(list).chain().differenceBy<TResult>(array, list, array, list, array, list);
 
-        result = _(list).chain().differenceBy<TResult>(list, iteratee);
-        result = _(list).chain().differenceBy<TResult>(array, list, iteratee);
-        result = _(list).chain().differenceBy<TResult>(list, array, list, iteratee);
-        result = _(list).chain().differenceBy<TResult>(array, list, array, list, iteratee);
-        result = _(list).chain().differenceBy<TResult>(list, array, list, array, list, iteratee);
+        result = _(list).chain().differenceBy(list, iteratee);
+        result = _(list).chain().differenceBy(array, list, iteratee);
+        result = _(list).chain().differenceBy(list, array, list, iteratee);
+        result = _(list).chain().differenceBy(array, list, array, list, iteratee);
+        result = _(list).chain().differenceBy(list, array, list, array, list, iteratee);
         result = _(list).chain().differenceBy<TResult>(array, list, array, list, array, list, iteratee);
 
-        result = _(list).chain().differenceBy<TResult>(list, 'a');
-        result = _(list).chain().differenceBy<TResult>(array, list, 'a');
-        result = _(list).chain().differenceBy<TResult>(list, array, list, 'a');
-        result = _(list).chain().differenceBy<TResult>(array, list, array, list, 'a');
-        result = _(list).chain().differenceBy<TResult>(list, array, list, array, list, 'a');
+        result = _(list).chain().differenceBy(list, 'a');
+        result = _(list).chain().differenceBy(array, list, 'a');
+        result = _(list).chain().differenceBy(list, array, list, 'a');
+        result = _(list).chain().differenceBy(array, list, array, list, 'a');
+        result = _(list).chain().differenceBy(list, array, list, array, list, 'a');
         result = _(list).chain().differenceBy<TResult>(array, list, array, list, array, list, 'a');
 
-        result = _(list).chain().differenceBy<TResult, {a: number}>(list, {a: 1});
-        result = _(list).chain().differenceBy<TResult, {a: number}>(array, list, {a: 1});
-        result = _(list).chain().differenceBy<TResult, {a: number}>(list, array, list, {a: 1});
-        result = _(list).chain().differenceBy<TResult, {a: number}>(array, list, array, list, {a: 1});
-        result = _(list).chain().differenceBy<TResult, {a: number}>(list, array, list, array, list, {a: 1});
+        result = _(list).chain().differenceBy(list, {a: 1});
+        result = _(list).chain().differenceBy(array, list, {a: 1});
+        result = _(list).chain().differenceBy(list, array, list, {a: 1});
+        result = _(list).chain().differenceBy(array, list, array, list, {a: 1});
+        result = _(list).chain().differenceBy(list, array, list, array, list, {a: 1});
         result = _(list).chain().differenceBy<TResult>(array, list, array, list, array, list, {a: 1});
     }
 }
@@ -457,11 +457,11 @@ namespace TestDifferenceBy {
 
     {
         let result: TResult[];
-        result = _.drop<TResult>(array);
-        result = _.drop<TResult>(array, 42);
+        result = _.drop(array);
+        result = _.drop(array, 42);
 
-        result = _.drop<TResult>(list);
-        result = _.drop<TResult>(list, 42);
+        result = _.drop(list);
+        result = _.drop(list, 42);
     }
 
     {
@@ -470,8 +470,8 @@ namespace TestDifferenceBy {
         result = _(array).drop();
         result = _(array).drop(42);
 
-        result = _(list).drop<TResult>();
-        result = _(list).drop<TResult>(42);
+        result = _(list).drop();
+        result = _(list).drop(42);
     }
 
     {
@@ -480,8 +480,8 @@ namespace TestDifferenceBy {
         result = _(array).chain().drop();
         result = _(array).chain().drop(42);
 
-        result = _(list).chain().drop<TResult>();
-        result = _(list).chain().drop<TResult>(42);
+        result = _(list).chain().drop();
+        result = _(list).chain().drop(42);
     }
 }
 
@@ -493,11 +493,11 @@ namespace TestDropRight {
     {
         let result: TResult[];
 
-        result = _.dropRight<TResult>(array);
-        result = _.dropRight<TResult>(array, 42);
+        result = _.dropRight(array);
+        result = _.dropRight(array, 42);
 
-        result = _.dropRight<TResult>(list);
-        result = _.dropRight<TResult>(list, 42);
+        result = _.dropRight(list);
+        result = _.dropRight(list, 42);
 
     }
 
@@ -507,8 +507,8 @@ namespace TestDropRight {
         result = _(array).dropRight();
         result = _(array).dropRight(42);
 
-        result = _(list).dropRight<TResult>();
-        result = _(list).dropRight<TResult>(42);
+        result = _(list).dropRight();
+        result = _(list).dropRight(42);
     }
 
     {
@@ -517,8 +517,8 @@ namespace TestDropRight {
         result = _(array).chain().dropRight();
         result = _(array).chain().dropRight(42);
 
-        result = _(list).chain().dropRight<TResult>();
-        result = _(list).chain().dropRight<TResult>(42);
+        result = _(list).chain().dropRight();
+        result = _(list).chain().dropRight(42);
     }
 }
 
@@ -531,15 +531,15 @@ namespace TestDropRightWhile {
     {
         let result: TResult[];
 
-        result = _.dropRightWhile<TResult>(array);
-        result = _.dropRightWhile<TResult>(array, predicateFn);
-        result = _.dropRightWhile<TResult>(array, '');
-        result = _.dropRightWhile<{a: number;}, TResult>(array, {a: 42});
+        result = _.dropRightWhile(array);
+        result = _.dropRightWhile(array, predicateFn);
+        result = _.dropRightWhile(array, '');
+        result = _.dropRightWhile(array, {a: 42});
 
-        result = _.dropRightWhile<TResult>(list);
-        result = _.dropRightWhile<TResult>(list, predicateFn);
-        result = _.dropRightWhile<TResult>(list, '');
-        result = _.dropRightWhile<{a: number;}, TResult>(list, {a: 42});
+        result = _.dropRightWhile(list);
+        result = _.dropRightWhile(list, predicateFn);
+        result = _.dropRightWhile(list, '');
+        result = _.dropRightWhile(list, {a: 42});
     }
 
     {
@@ -548,12 +548,12 @@ namespace TestDropRightWhile {
         result = _(array).dropRightWhile();
         result = _(array).dropRightWhile(predicateFn);
         result = _(array).dropRightWhile('');
-        result = _(array).dropRightWhile<{a: number;}>({a: 42});
+        result = _(array).dropRightWhile({a: 42});
 
-        result = _(list).dropRightWhile<TResult>();
-        result = _(list).dropRightWhile<TResult>(predicateFn);
-        result = _(list).dropRightWhile<TResult>('');
-        result = _(list).dropRightWhile<{a: number;}, TResult>({a: 42});
+        result = _(list).dropRightWhile();
+        result = _(list).dropRightWhile(predicateFn);
+        result = _(list).dropRightWhile('');
+        result = _(list).dropRightWhile({a: 42});
     }
 
     {
@@ -562,12 +562,12 @@ namespace TestDropRightWhile {
         result = _(array).chain().dropRightWhile();
         result = _(array).chain().dropRightWhile(predicateFn);
         result = _(array).chain().dropRightWhile('');
-        result = _(array).chain().dropRightWhile<{a: number;}>({a: 42});
+        result = _(array).chain().dropRightWhile({a: 42});
 
-        result = _(list).chain().dropRightWhile<TResult>();
-        result = _(list).chain().dropRightWhile<TResult>(predicateFn);
-        result = _(list).chain().dropRightWhile<TResult>('');
-        result = _(list).chain().dropRightWhile<{a: number;}, TResult>({a: 42});
+        result = _(list).chain().dropRightWhile();
+        result = _(list).chain().dropRightWhile(predicateFn);
+        result = _(list).chain().dropRightWhile('');
+        result = _(list).chain().dropRightWhile({a: 42});
     }
 }
 
@@ -580,15 +580,15 @@ namespace TestDropWhile {
     {
         let result: TResult[];
 
-        result = _.dropWhile<TResult>(array);
-        result = _.dropWhile<TResult>(array, predicateFn);
-        result = _.dropWhile<TResult>(array, '');
-        result = _.dropWhile<{a: number;}, TResult>(array, {a: 42});
+        result = _.dropWhile(array);
+        result = _.dropWhile(array, predicateFn);
+        result = _.dropWhile(array, '');
+        result = _.dropWhile(array, {a: 42});
 
-        result = _.dropWhile<TResult>(list);
-        result = _.dropWhile<TResult>(list, predicateFn);
-        result = _.dropWhile<TResult>(list, '');
-        result = _.dropWhile<{a: number;}, TResult>(list, {a: 42});
+        result = _.dropWhile(list);
+        result = _.dropWhile(list, predicateFn);
+        result = _.dropWhile(list, '');
+        result = _.dropWhile(list, {a: 42});
     }
 
     {
@@ -597,12 +597,12 @@ namespace TestDropWhile {
         result = _(array).dropWhile();
         result = _(array).dropWhile(predicateFn);
         result = _(array).dropWhile('');
-        result = _(array).dropWhile<{a: number;}>({a: 42});
+        result = _(array).dropWhile({a: 42});
 
-        result = _(list).dropWhile<TResult>();
-        result = _(list).dropWhile<TResult>(predicateFn);
-        result = _(list).dropWhile<TResult>('');
-        result = _(list).dropWhile<{a: number;}, TResult>({a: 42});
+        result = _(list).dropWhile();
+        result = _(list).dropWhile(predicateFn);
+        result = _(list).dropWhile('');
+        result = _(list).dropWhile({a: 42});
     }
 
     {
@@ -611,12 +611,12 @@ namespace TestDropWhile {
         result = _(array).chain().dropWhile();
         result = _(array).chain().dropWhile(predicateFn);
         result = _(array).chain().dropWhile('');
-        result = _(array).chain().dropWhile<{a: number;}>({a: 42});
+        result = _(array).chain().dropWhile({a: 42});
 
-        result = _(list).chain().dropWhile<TResult>();
-        result = _(list).chain().dropWhile<TResult>(predicateFn);
-        result = _(list).chain().dropWhile<TResult>('');
-        result = _(list).chain().dropWhile<{a: number;}, TResult>({a: 42});
+        result = _(list).chain().dropWhile();
+        result = _(list).chain().dropWhile(predicateFn);
+        result = _(list).chain().dropWhile('');
+        result = _(list).chain().dropWhile({a: 42});
     }
 }
 
@@ -628,49 +628,55 @@ namespace TestFill {
     {
         let result: number[];
 
-        result = _.fill<number>(array, 42);
-        result = _.fill<number>(array, 42, 0);
-        result = _.fill<number>(array, 42, 0, 10);
+        result = _.fill(array, 42);
+        result = _.fill(array, 42, 0);
+        result = _.fill(array, 42, 0, 10);
     }
 
     {
         let result: _.List<number>;
 
-        result = _.fill<number>(list, 42);
-        result = _.fill<number>(list, 42, 0);
-        result = _.fill<number>(list, 42, 0, 10);
+        result = _.fill(list, 42);
+        result = _.fill(list, 42, 0);
+        result = _.fill(list, 42, 0, 10);
     }
 
     {
         let result: _.LoDashImplicitArrayWrapper<number>;
 
-        result = _(array).fill<number>(42);
-        result = _(array).fill<number>(42, 0);
-        result = _(array).fill<number>(42, 0, 10);
+        result = _(array).fill(42);
+        result = _(array).fill(42, 0);
+        result = _(array).fill(42, 0, 10);
     }
 
     {
-        let result: _.LoDashImplicitObjectWrapper<_.List<number>>;
+        /* WARN: not true:
+            _.fill(document.querySelectorAll('a'), 1) == document.querySelectorAll('a')
+        */
+        let result: _.LoDashImplicitArrayWrapper<number>;
 
-        result = _(list).fill<number>(42);
-        result = _(list).fill<number>(42, 0);
-        result = _(list).fill<number>(42, 0, 10);
+        result = _(list).fill(42);
+        result = _(list).fill(42, 0);
+        result = _(list).fill(42, 0, 10);
     }
 
     {
         let result: _.LoDashExplicitArrayWrapper<number>;
 
-        result = _(array).chain().fill<number>(42);
-        result = _(array).chain().fill<number>(42, 0);
-        result = _(array).chain().fill<number>(42, 0, 10);
+        result = _(array).chain().fill(42);
+        result = _(array).chain().fill(42, 0);
+        result = _(array).chain().fill(42, 0, 10);
     }
 
     {
-        let result: _.LoDashExplicitObjectWrapper<_.List<number>>;
+        /* WARN: not true:
+            _.fill(document.querySelectorAll('a'), 1) == document.querySelectorAll('a')
+        */
+        let result: _.LoDashExplicitArrayWrapper<number>;
 
-        result = _(list).chain().fill<number>(42);
-        result = _(list).chain().fill<number>(42, 0);
-        result = _(list).chain().fill<number>(42, 0, 10);
+        result = _(list).chain().fill(42);
+        result = _(list).chain().fill(42, 0);
+        result = _(list).chain().fill(42, 0, 10);
     }
 }
 
@@ -684,45 +690,45 @@ namespace TestFindIndex {
     {
         let result: number;
 
-        result = _.findIndex<TResult>(array);
-        result = _.findIndex<TResult>(array, predicateFn);
-        result = _.findIndex<TResult>(array, '');
-        result = _.findIndex<{a: number}, TResult>(array, {a: 42});
-        result = _.findIndex<TResult>(array, predicateFn, fromIndex);
+        result = _.findIndex(array);
+        result = _.findIndex(array, predicateFn);
+        result = _.findIndex(array, '');
+        result = _.findIndex(array, {a: 42});
+        result = _.findIndex(array, predicateFn, fromIndex);
 
-        result = _.findIndex<TResult>(list);
-        result = _.findIndex<TResult>(list, predicateFn);
-        result = _.findIndex<TResult>(list, '');
-        result = _.findIndex<{a: number}, TResult>(list, {a: 42});
-        result = _.findIndex<TResult>(list, predicateFn, fromIndex);
+        result = _.findIndex(list);
+        result = _.findIndex(list, predicateFn);
+        result = _.findIndex(list, '');
+        result = _.findIndex(list, {a: 42});
+        result = _.findIndex(list, predicateFn, fromIndex);
 
-        result = _<TResult>(array).findIndex();
-        result = _<TResult>(array).findIndex(predicateFn);
-        result = _<TResult>(array).findIndex('');
-        result = _<TResult>(array).findIndex<{a: number}>({a: 42});
-        result = _<TResult>(array).findIndex(predicateFn, fromIndex);
+        result = _(array).findIndex();
+        result = _(array).findIndex(predicateFn);
+        result = _(array).findIndex('');
+        result = _(array).findIndex({a: 42});
+        result = _(array).findIndex(predicateFn, fromIndex);
 
         result = _(list).findIndex();
-        result = _(list).findIndex<TResult>(predicateFn);
+        result = _(list).findIndex(predicateFn);
         result = _(list).findIndex('');
-        result = _(list).findIndex<{a: number}>({a: 42});
-        result = _(list).findIndex<TResult>(predicateFn, fromIndex);
+        result = _(list).findIndex({a: 42});
+        result = _(list).findIndex(predicateFn, fromIndex);
     }
 
     {
         let result: _.LoDashExplicitWrapper<number>;
 
-        result = _<TResult>(array).chain().findIndex();
-        result = _<TResult>(array).chain().findIndex(predicateFn);
-        result = _<TResult>(array).chain().findIndex('');
-        result = _<TResult>(array).chain().findIndex<{a: number}>({a: 42});
-        result = _<TResult>(array).chain().findIndex(predicateFn, fromIndex);
+        result = _(array).chain().findIndex();
+        result = _(array).chain().findIndex(predicateFn);
+        result = _(array).chain().findIndex('');
+        result = _(array).chain().findIndex({a: 42});
+        result = _(array).chain().findIndex(predicateFn, fromIndex);
 
         result = _(list).chain().findIndex();
-        result = _(list).chain().findIndex<TResult>(predicateFn);
+        result = _(list).chain().findIndex(predicateFn);
         result = _(list).chain().findIndex('');
-        result = _(list).chain().findIndex<{a: number}>({a: 42});
-        result = _(list).chain().findIndex<TResult>(predicateFn, fromIndex);
+        result = _(list).chain().findIndex({a: 42});
+        result = _(list).chain().findIndex(predicateFn, fromIndex);
     }
 }
 
@@ -737,45 +743,45 @@ namespace TestFindLastIndex {
     {
         let result: number;
 
-        result = _.findLastIndex<TResult>(array);
-        result = _.findLastIndex<TResult>(array, predicateFn);
-        result = _.findLastIndex<TResult>(array, '');
-        result = _.findLastIndex<{a: number}, TResult>(array, {a: 42});
-        result = _.findLastIndex<TResult>(array, predicateFn, fromIndex);
+        result = _.findLastIndex(array);
+        result = _.findLastIndex(array, predicateFn);
+        result = _.findLastIndex(array, '');
+        result = _.findLastIndex(array, {a: 42});
+        result = _.findLastIndex(array, predicateFn, fromIndex);
 
-        result = _.findLastIndex<TResult>(list);
-        result = _.findLastIndex<TResult>(list, predicateFn);
-        result = _.findLastIndex<TResult>(list, '');
-        result = _.findLastIndex<{a: number}, TResult>(list, {a: 42});
-        result = _.findLastIndex<TResult>(list, predicateFn, fromIndex);
+        result = _.findLastIndex(list);
+        result = _.findLastIndex(list, predicateFn);
+        result = _.findLastIndex(list, '');
+        result = _.findLastIndex(list, {a: 42});
+        result = _.findLastIndex(list, predicateFn, fromIndex);
 
-        result = _<TResult>(array).findLastIndex();
-        result = _<TResult>(array).findLastIndex(predicateFn);
-        result = _<TResult>(array).findLastIndex('');
-        result = _<TResult>(array).findLastIndex<{a: number}>({a: 42});
-        result = _<TResult>(array).findLastIndex(predicateFn, fromIndex);
+        result = _(array).findLastIndex();
+        result = _(array).findLastIndex(predicateFn);
+        result = _(array).findLastIndex('');
+        result = _(array).findLastIndex({a: 42});
+        result = _(array).findLastIndex(predicateFn, fromIndex);
 
         result = _(list).findLastIndex();
-        result = _(list).findLastIndex<TResult>(predicateFn);
+        result = _(list).findLastIndex(predicateFn);
         result = _(list).findLastIndex('');
-        result = _(list).findLastIndex<{a: number}>({a: 42});
-        result = _(list).findLastIndex<TResult>(predicateFn, fromIndex);
+        result = _(list).findLastIndex({a: 42});
+        result = _(list).findLastIndex(predicateFn, fromIndex);
     }
 
     {
         let result: _.LoDashExplicitWrapper<number>;
 
-        result = _<TResult>(array).chain().findLastIndex();
-        result = _<TResult>(array).chain().findLastIndex(predicateFn);
-        result = _<TResult>(array).chain().findLastIndex('');
-        result = _<TResult>(array).chain().findLastIndex<{a: number}>({a: 42});
-        result = _<TResult>(array).chain().findLastIndex(predicateFn, fromIndex);
+        result = _(array).chain().findLastIndex();
+        result = _(array).chain().findLastIndex(predicateFn);
+        result = _(array).chain().findLastIndex('');
+        result = _(array).chain().findLastIndex({a: 42});
+        result = _(array).chain().findLastIndex(predicateFn, fromIndex);
 
         result = _(list).chain().findLastIndex();
-        result = _(list).chain().findLastIndex<TResult>(predicateFn);
+        result = _(list).chain().findLastIndex(predicateFn);
         result = _(list).chain().findLastIndex('');
-        result = _(list).chain().findLastIndex<{a: number}>({a: 42});
-        result = _(list).chain().findLastIndex<TResult>(predicateFn, fromIndex);
+        result = _(list).chain().findLastIndex({a: 42});
+        result = _(list).chain().findLastIndex(predicateFn, fromIndex);
     }
 }
 
@@ -794,11 +800,11 @@ namespace TestFirst {
     {
         let result: TResult;
 
-        result = _.first<TResult>(array);
-        result = _.first<TResult>(list);
+        result = _.first(array);
+        result = _.first(list);
 
         result = _(array).first();
-        result = _(list).first<TResult>();
+        result = _(list).first();
     }
 
     {
@@ -826,25 +832,27 @@ namespace TestFlatten {
     {
         let result: number[];
 
-        result = _.flatten<number>([1, 2, 3]);
-        result = _.flatten<number>([1, [2, 3]]);
-        result = _.flatten<number>([1, [2, [3]]], true);
-        result = _.flatten<number>([1, [2, [3]], [[4]]], true);
+        result = _.flatten([1, 2, 3]);
+        result = _.flatten([1, [2, 3]]);
+        // WARN: return [1,2,[3]] - it's not number[]
+        // result = _.flatten([1, [2, [3]]], true);
+        // as above
+        // result = _.flatten([1, [2, [3]], [[4]]], true);
 
-        result = _.flatten<number>({0: 1, 1: 2, 2: 3, length: 3});
-        result = _.flatten<number>({0: 1, 1: [2, 3], length: 2});
-        result = _.flatten<number>({0: 1, 1: [2, [3]], length: 2}, true);
-        result = _.flatten<number>({0: 1, 1: [2, [3]], 2: [[4]], length: 3}, true);
+        result = _.flatten({0: 1, 1: 2, 2: 3, length: 3});
+        result = _.flatten({0: 1, 1: [2, 3], length: 2});
+        // result = _.flatten({0: 1, 1: [2, [3]], length: 2}, true);
+        // result = _.flatten({0: 1, 1: [2, [3]], 2: [[4]], length: 3}, true);
     }
 
     {
         let result: _.RecursiveArray<number>;
 
-        result = _.flatten<number>([1, [2, [3]]]);
-        result = _.flatten<number>([1, [2, [3]], [[4]]]);
+        result = _.flatten([1, [2, [3]]]);
+        result = _.flatten([1, [2, [3]], [[4]]]);
 
-        result = _.flatten<number>({0: 1, 1: [2, [3]], length: 2});
-        result = _.flatten<number>({0: 1, 1: [2, [3]], 2: [[4]], length: 3});
+        result = _.flatten({0: 1, 1: [2, [3]], length: 2});
+        result = _.flatten({0: 1, 1: [2, [3]], 2: [[4]], length: 3});
     }
 
     {
@@ -864,6 +872,8 @@ namespace TestFlatten {
         result = _({0: 1, 1: 2, 2: 3, length: 3}).flatten<number>();
         result = _({0: 1, 1: [2, 3], length: 2}).flatten<number>();
         result = _({0: 1, 1: [2, [3]], length: 2}).flatten<number>(true);
+        // WARN: this returns [1,2,[3],[4]], so not _.LoDashImplicitArrayWrapper<number>, but
+        // _.LoDashImplicitArrayWrapper<number|number[]>
         result = _({0: 1, 1: [2, [3]], 2: [[4]], length: 3}).flatten<number>(true);
     }
 
@@ -1031,11 +1041,11 @@ namespace TestHead {
     {
         let result: TResult;
 
-        result = _.head<TResult>(array);
-        result = _.head<TResult>(list);
+        result = _.head(array);
+        result = _.head(list);
 
         result = _(array).head();
-        result = _(list).head<TResult>();
+        result = _(list).head();
     }
 
     {

@@ -285,7 +285,7 @@ declare namespace _ {
         (value: string): LoDashImplicitStringWrapper;
         (value: boolean): LoDashImplicitWrapper<boolean>;
         (value: number[]): LoDashImplicitNumberArrayWrapper;
-        <T>(value: T[]): LoDashImplicitArrayWrapper<T>;
+        <T>(value: T[]|List<T>): LoDashImplicitArrayWrapper<T>;
         <T extends {}>(value: T): LoDashImplicitObjectWrapper<T>;
         (value: any): LoDashImplicitWrapper<any>;
 
