@@ -2135,6 +2135,7 @@ declare namespace _ {
          * @return Returns the first element of array.
          */
         head<T>(array: List<T> | null | undefined): T | undefined;
+        first<T>(array: List<T> | null | undefined): T | undefined;
     }
 
     interface LoDashImplicitWrapper<T> {
@@ -2142,6 +2143,7 @@ declare namespace _ {
          * @see _.head
          */
         head(): string | undefined;
+        first(): string | undefined;
     }
 
     interface LoDashImplicitArrayWrapperBase<T, TArray extends T[] | null | undefined, TWrapper> {
@@ -2149,6 +2151,7 @@ declare namespace _ {
          * @see _.head
          */
         head(): T | undefined;
+        first(): T | undefined;
     }
 
     interface LoDashImplicitObjectWrapperBase<T, TObject extends T | null | undefined, TWrapper> {
@@ -2156,12 +2159,14 @@ declare namespace _ {
          * @see _.head
          */
         head<T>(): T | undefined;
+        first<T>(): T | undefined;
     }
 
     interface LoDashExplicitWrapper<T> {
         /**
          * @see _.head
          */
+        first(): LoDashExplicitWrapper<string>;
         head(): LoDashExplicitWrapper<string>;
     }
 
@@ -2170,13 +2175,15 @@ declare namespace _ {
          * @see _.head
          */
         head<T>(): T;
+        first<T>(): T;
     }
 
     interface LoDashExplicitObjectWrapperBase<T, TObject extends T | null | undefined, TWrapper> {
         /**
          * @see _.head
          */
-        head<T>(): T;
+        head<T>(): LoDashExplicitWrapper<T>;
+        first<T>(): LoDashExplicitWrapper<T>;
     }
 
     //_.indexOf

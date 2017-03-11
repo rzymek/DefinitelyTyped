@@ -1048,6 +1048,7 @@ namespace TestFromPairs {
 }
 
 // _.head
+// _.first
 namespace TestHead {
     let array: TResult[] | null | undefined = [] as any;
     let list: _.List<TResult> | null | undefined = [] as any;
@@ -1056,44 +1057,59 @@ namespace TestHead {
         let result: string | undefined;
 
         result = _.head('abc');
+        result = _.first('abc');
         result = _('abc').head();
+        result = _('abc').first();
     }
 
     {
         let result: TResult | undefined;
 
         result = _.head<TResult>(array);
+        result = _.first<TResult>(array);
         result = _.head<TResult>(list);
+        result = _.first<TResult>(list);
 
         result = _(array).head();
-        result = _(list).head<TResult>();
+        result = _(array).first();
+        // result = _(list).head();
+        // result = _(list).first();
     }
 
     {
         let result: _.LoDashExplicitWrapper<string>;
 
         result = _('abc').chain().head();
+        result = _('abc').chain().first();
     }
 
     {
-        let result: _.LoDashExplicitObjectWrapper<TResult>;
+        let result: _.LoDashExplicitWrapper<TResult>;
 
-        result = _(array).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
-        result = _(list).chain().head<_.LoDashExplicitObjectWrapper<TResult>>();
+        result = _(array).chain().head();
+        result = _(array).chain().first();
+        // result = _(list).chain()//.head(); //TODO
+        // result = _(list).chain().first();//TODO
     }
     {
         let result: string;
 
         result = _(['a','b','c']).chain().head().value();
+        result = _(['a','b','c']).chain().first().value();
         result = _.chain(['a','b','c']).head().value();
+        result = _.chain(['a','b','c']).first().value();
     }
     {
         let result: TResult;
 
         result = _(array).chain().head().value();
-        result = _(list).chain().head().value();
+        result = _(array).chain().first().value();
+        // result = _(list).chain().head().value();//TODO
+        // result = _(list).chain().first().value();//TODO
         result = _.chain(array).head().value();
-        result = _.chain(list).head().value();
+        result = _.chain(array).first().value();
+        // result = _.chain(list).head().value();//TODO
+        // result = _.chain(list).first().value();//TODO
     }
 }
 
